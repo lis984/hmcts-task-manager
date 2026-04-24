@@ -1,0 +1,292 @@
+/* ============================================================
+   HMCTS Task Manager – GOV.UK Design System inspired styles
+   ============================================================ */
+
+:root {
+  --govuk-blue:        #1d70b8;
+  --govuk-blue-dark:   #003078;
+  --govuk-black:       #0b0c0c;
+  --govuk-white:       #ffffff;
+  --govuk-grey-1:      #f3f2f1;
+  --govuk-grey-2:      #b1b4b6;
+  --govuk-grey-3:      #505a5f;
+  --govuk-green:       #00703c;
+  --govuk-red:         #d4351c;
+  --govuk-yellow:      #fd0;
+  --govuk-orange:      #f47738;
+  --font: "GDS Transport", arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--govuk-black);
+  background: var(--govuk-white);
+}
+
+/* ---- Header ---- */
+.govuk-header {
+  background: var(--govuk-black);
+  color: var(--govuk-white);
+  padding: 10px 0;
+  border-bottom: 10px solid var(--govuk-blue);
+}
+.govuk-header__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.govuk-header__logo { display: flex; align-items: center; }
+.crown { width: 36px; height: 26px; fill: var(--govuk-white); }
+.govuk-header__service-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--govuk-white);
+}
+
+/* ---- Layout ---- */
+.govuk-width-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.govuk-main-wrapper { padding: 40px 0; }
+.govuk-grid-row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+.govuk-grid-column-two-thirds { padding: 0 15px; width: 66.67%; }
+.govuk-grid-column-one-third  { padding: 0 15px; width: 33.33%; }
+
+/* ---- Typography ---- */
+.govuk-heading-xl { font-size: 2rem; font-weight: 700; margin: 0 0 20px; }
+.govuk-heading-l  { font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; }
+.govuk-heading-m  { font-size: 1.125rem; font-weight: 700; margin: 0 0 12px; }
+.govuk-body       { font-size: 1rem; margin: 0 0 12px; }
+.govuk-label      { display: block; font-weight: 600; margin-bottom: 6px; }
+.govuk-hint       { color: var(--govuk-grey-3); font-size: 0.875rem; }
+.govuk-required   { color: var(--govuk-red); }
+
+/* ---- Form elements ---- */
+.govuk-form-group { margin-bottom: 20px; }
+.govuk-input, .govuk-select, .govuk-textarea {
+  font-family: var(--font);
+  font-size: 1rem;
+  border: 2px solid var(--govuk-black);
+  padding: 8px 10px;
+  width: 100%;
+  outline: none;
+  background: var(--govuk-white);
+  color: var(--govuk-black);
+}
+.govuk-input:focus, .govuk-select:focus, .govuk-textarea:focus {
+  outline: 3px solid var(--govuk-yellow);
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px var(--govuk-black);
+}
+.govuk-form-group--error .govuk-input,
+.govuk-form-group--error .govuk-select {
+  border-color: var(--govuk-red);
+}
+.govuk-textarea { resize: vertical; }
+
+/* ---- Buttons ---- */
+.govuk-button {
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 4px solid #005a30;
+  background: var(--govuk-green);
+  color: var(--govuk-white);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0;
+  line-height: 1.3;
+}
+.govuk-button:hover { background: #005a30; }
+.govuk-button:focus { outline: 3px solid var(--govuk-yellow); outline-offset: 0; }
+.govuk-button--secondary {
+  background: var(--govuk-grey-1);
+  border-color: #929191;
+  color: var(--govuk-black);
+}
+.govuk-button--secondary:hover { background: #dbdad9; }
+.govuk-button--warning {
+  background: var(--govuk-red);
+  border-color: #942514;
+  color: var(--govuk-white);
+}
+.govuk-button--warning:hover { background: #aa2a16; }
+
+/* ---- Filter bar ---- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--govuk-grey-1);
+  border-left: 4px solid var(--govuk-blue);
+}
+.filter-bar .govuk-select { width: auto; }
+
+/* ---- Task Cards ---- */
+#task-list { display: flex; flex-direction: column; gap: 16px; }
+
+.task-card {
+  border: 1px solid var(--govuk-grey-2);
+  border-left: 6px solid var(--govuk-grey-2);
+  padding: 20px;
+  background: var(--govuk-white);
+  transition: box-shadow 0.15s;
+}
+.task-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+.task-card--pending     { border-left-color: var(--govuk-orange); }
+.task-card--in_progress { border-left-color: var(--govuk-blue); }
+.task-card--completed   { border-left-color: var(--govuk-green); opacity: 0.85; }
+.task-card--overdue     { border-left-color: var(--govuk-red); }
+
+.task-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.task-card__title { font-size: 1.125rem; font-weight: 700; margin: 0 0 6px; }
+.task-card__description { color: var(--govuk-grey-3); margin: 0 0 12px; font-size: 0.9375rem; }
+
+.task-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--govuk-grey-3);
+  margin-bottom: 16px;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+}
+.status-badge--pending     { background: #fff3e0; color: #7b3f00; border: 1px solid var(--govuk-orange); }
+.status-badge--in_progress { background: #e8f0fe; color: var(--govuk-blue-dark); border: 1px solid var(--govuk-blue); }
+.status-badge--completed   { background: #e5f3ec; color: #005a30; border: 1px solid var(--govuk-green); }
+
+.overdue-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: #fde8e5;
+  color: var(--govuk-red);
+  border: 1px solid var(--govuk-red);
+  border-radius: 2px;
+}
+
+/* Inline status update */
+.task-card__status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.task-card__status-row label { font-weight: 600; font-size: 0.875rem; white-space: nowrap; }
+.task-card__status-row select { width: auto; padding: 4px 8px; font-size: 0.875rem; }
+.task-card__status-row button { padding: 5px 12px; font-size: 0.875rem; border-bottom-width: 2px; }
+
+/* Card action buttons */
+.task-card__actions { display: flex; gap: 8px; }
+.task-card__actions button { padding: 6px 14px; font-size: 0.875rem; border-bottom-width: 2px; }
+
+/* ---- Empty state ---- */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--govuk-grey-3);
+  border: 2px dashed var(--govuk-grey-2);
+}
+.empty-state p { font-size: 1.125rem; }
+
+/* ---- Notification Banner ---- */
+.govuk-notification-banner {
+  border: 5px solid var(--govuk-blue);
+  margin-bottom: 24px;
+}
+.govuk-notification-banner--success { border-color: var(--govuk-green); }
+.govuk-notification-banner--error   { border-color: var(--govuk-red); }
+.govuk-notification-banner__header  { padding: 8px 16px; background: var(--govuk-blue); }
+.govuk-notification-banner--success .govuk-notification-banner__header { background: var(--govuk-green); }
+.govuk-notification-banner--error   .govuk-notification-banner__header { background: var(--govuk-red); }
+.govuk-notification-banner__title   { color: var(--govuk-white); font-size: 1rem; font-weight: 700; margin: 0; }
+.govuk-notification-banner__content { padding: 12px 16px; }
+.govuk-notification-banner__heading { font-weight: 600; margin: 0; font-size: 1rem; }
+
+/* ---- Error summary ---- */
+.govuk-error-summary {
+  border: 5px solid var(--govuk-red);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.govuk-error-summary__title { font-size: 1.125rem; font-weight: 700; margin: 0 0 10px; }
+.govuk-list { margin: 0; padding-left: 20px; }
+.govuk-error-summary__list li { color: var(--govuk-red); font-weight: 600; }
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.modal-box {
+  background: var(--govuk-white);
+  padding: 32px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.modal-box--narrow { max-width: 420px; }
+.modal-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+
+/* ---- Footer ---- */
+.govuk-footer {
+  background: var(--govuk-grey-1);
+  border-top: 1px solid var(--govuk-grey-2);
+  padding: 24px 0;
+  margin-top: 40px;
+}
+.govuk-footer__meta { display: flex; align-items: center; }
+.govuk-footer__meta-item--grow { flex: 1; }
+.govuk-footer__licence-description { font-size: 0.875rem; color: var(--govuk-grey-3); }
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .govuk-grid-column-two-thirds,
+  .govuk-grid-column-one-third { width: 100%; text-align: left !important; }
+  .task-card__header { flex-direction: column; }
+  .filter-bar { flex-direction: column; align-items: flex-start; }
+  .modal-actions { flex-direction: column; }
+  .modal-actions button { width: 100%; }
+}
